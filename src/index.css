@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+
+/* ──────────────────────────────────────────────────────────────
+   Karen Roses — Design System
+   ────────────────────────────────────────────────────────────── */
+@theme {
+  /* Brand palette — deep botanical greens, rose blush, warm cream, gold */
+  --color-moss-50: #f3f7f2;
+  --color-moss-100: #e3ecdf;
+  --color-moss-200: #c7d9c0;
+  --color-moss-300: #9fbd95;
+  --color-moss-400: #719a64;
+  --color-moss-500: #517d44;
+  --color-moss-600: #3d6333;
+  --color-moss-700: #314f2a;
+  --color-moss-800: #294023;
+  --color-moss-900: #21351e;
+  --color-moss-950: #0f1d0e;
+
+  --color-rose-50: #fdf3f5;
+  --color-rose-100: #fce7eb;
+  --color-rose-200: #f9d0da;
+  --color-rose-300: #f4a9bc;
+  --color-rose-400: #ec7596;
+  --color-rose-500: #df4a72;
+  --color-rose-600: #c92a5b;
+  --color-rose-700: #a91e4a;
+  --color-rose-800: #8d1c43;
+  --color-rose-900: #791b3e;
+
+  --color-cream-50: #fdfbf6;
+  --color-cream-100: #faf5ea;
+  --color-cream-200: #f3e8d0;
+  --color-cream-300: #ebd8b3;
+
+  --color-gold-400: #d4af6a;
+  --color-gold-500: #c79a48;
+  --color-gold-600: #ad7f32;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Easing + animation */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-50 text-moss-950 font-sans antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    @apply bg-rose-200 text-moss-900;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cream-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-moss-300 rounded-full border-2 border-cream-100;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-moss-400;
+  }
+}
+
+@layer components {
+  .container-xl {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-moss-500;
+  }
+  .heading-display {
+    @apply font-display font-medium leading-[1.05] tracking-tight;
+  }
+  .btn,
+  .btn-primary,
+  .btn-rose,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold tracking-wide transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-moss-600 text-cream-50 hover:bg-moss-700 hover:shadow-xl hover:shadow-moss-900/20 hover:-translate-y-0.5;
+  }
+  .btn-rose {
+    @apply bg-rose-500 text-white hover:bg-rose-600 hover:shadow-xl hover:shadow-rose-900/25 hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply border border-moss-300 text-moss-700 hover:bg-moss-600 hover:text-cream-50 hover:border-moss-600;
+  }
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+  .input {
+    @apply w-full rounded-xl border border-cream-100/15 bg-cream-50/[0.04] px-4 py-3 text-sm text-cream-50 outline-none transition placeholder:text-cream-100/40 focus:border-gold-400/60 focus:ring-2 focus:ring-gold-400/20;
+  }
+  .input option {
+    @apply bg-moss-900 text-cream-50;
+  }
+}
+
+/* Reusable keyframe utilities */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(3deg); }
+}
+.animate-float-slow {
+  animation: float-slow 9s var(--ease-soft) infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, -1.5%); }
+}
+.animate-ken-burns {
+  animation: ken-burns 14s ease-out forwards;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(120deg, var(--color-gold-400), var(--color-gold-600), var(--color-gold-400));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
