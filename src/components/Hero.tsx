@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
+import WeatherChip from './WeatherChip'
 import { img } from '../data/site'
 
 type Slide = {
@@ -69,6 +70,13 @@ export default function Hero() {
       {/* Floating decorative petals */}
       <div className="pointer-events-none absolute right-[12%] top-[24%] hidden text-rose-300/40 lg:block">
         <Leaf size={90} className="animate-float-slow" />
+      </div>
+
+      {/* Live weather chip */}
+      <div className="absolute inset-x-0 top-24 z-20 hidden sm:block">
+        <div className="container-xl flex justify-end">
+          <WeatherChip />
+        </div>
       </div>
 
       <div className="container-xl relative flex h-full items-center">
