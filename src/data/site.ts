@@ -27,7 +27,7 @@ export const navItems: NavItem[] = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
   { label: 'Products', to: '/products' },
-  { label: 'Farm Live', to: '/farm-live' },
+  { label: 'Farm Events', to: '/farm-events' },
   { label: 'Sustainability', to: '/sustainability' },
   { label: 'News', to: '/news' },
   { label: 'Contact', to: '/contact' },

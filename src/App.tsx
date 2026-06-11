@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Products from './pages/Products'
-import FarmLive from './pages/FarmLive'
+import FarmEvents from './pages/FarmEvents'
 import Sustainability from './pages/Sustainability'
 import News from './pages/News'
 import Contact from './pages/Contact'
@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/farm-live" element={<FarmLive />} />
+          <Route path="/farm-events" element={<FarmEvents />} />
           <Route path="/sustainability" element={<Sustainability />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
